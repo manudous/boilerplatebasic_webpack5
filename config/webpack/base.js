@@ -20,7 +20,7 @@ module.exports = {
     extensions: [".js", ".ts", ".tsx"],
   },
   entry: {
-    app: "./index.tsx",
+    app: ['regenerator-runtime/runtime', './index.tsx'],
   },
   output: {
     path: path.resolve(process.cwd(), "dist"),
