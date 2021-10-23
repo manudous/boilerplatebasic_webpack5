@@ -1,13 +1,22 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const helpers = require("./helpers");
 const path = require("path");
 
 const basePath = __dirname;
 
 module.exports = {
-  mode: "development",
-  context: path.join(basePath, "src"),
+  context: helpers.resolveFromRootPath("src"),
   resolve: {
+    alias: {
+      assets: helpers.resolveFromRootPath('src/assets'),
+      common: helpers.resolveFromRootPath('src/common'),
+      core: helpers.resolveFromRootPath('src/core'),
+      layouts: helpers.resolveFromRootPath('src/layouts'),
+      pods: helpers.resolveFromRootPath('src/pods'),
+      scenes: helpers.resolveFromRootPath('src/scenes'),
+      'common-app': helpers.resolveFromRootPath('src/common-app'),
+    },
     extensions: [".js", ".ts", ".tsx"],
   },
   entry: {
@@ -16,7 +25,6 @@ module.exports = {
   output: {
     path: path.resolve(process.cwd(), "dist"),
   },
-  stats: "errors-only",
   module: {
     rules: [
       {
@@ -28,11 +36,11 @@ module.exports = {
         test: /\.html$/,
         loader: "html-loader",
       },
+      {
+        test: /\.(png|jpg)$/,
+        type: "asset/resource",
+      },
     ],
-  },
-  devtool: "eval-source-map",
-  devServer: {
-    port: 8080,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -41,8 +49,5 @@ module.exports = {
       scriptLoading: "blocking",
     }),
     new CleanWebpackPlugin(),
-    new Dotenv({
-      path: "./dev.env",
-    }),
   ],
 };
