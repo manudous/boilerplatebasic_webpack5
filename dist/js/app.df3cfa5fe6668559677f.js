@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[143],{505:(e,l,t)=>{var n=t(378);t(542).render(n.createElement("div",null,n.createElement("h1",null,"Hello from React DOM")),document.getElementById("root"))}},e=>{var l=l=>e(e.s=l);e.O(0,[736],(()=>(l(248),l(505)))),e.O()}]);

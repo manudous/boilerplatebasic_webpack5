@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const helpers = require("./helpers");
-const path = require("path");
 
 module.exports = {
   context: helpers.resolveFromRootPath("src"),
@@ -19,9 +18,6 @@ module.exports = {
   },
   entry: {
     app: ['regenerator-runtime/runtime', './index.tsx'],
-  },
-  output: {
-    path: path.resolve(process.cwd(), "dist"),
   },
   module: {
     rules: [
