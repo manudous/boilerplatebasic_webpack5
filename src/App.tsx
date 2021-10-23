@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "./content/pikachu.png";
+import stitch from "./content/stitch.png";
+import bambi from "./content/bambi.jpg";
 export const App = () => {
   const [name, setName] = React.useState("");
   return (
@@ -12,7 +13,8 @@ export const App = () => {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <img src={logo} alt="pikachu" />
+      <img src={stitch} alt="pikachu" />
+      <img src={bambi} alt="bambi" />
     </div>
   );
 };
