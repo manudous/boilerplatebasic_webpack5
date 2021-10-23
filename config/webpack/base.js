@@ -3,8 +3,6 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const helpers = require("./helpers");
 const path = require("path");
 
-const basePath = __dirname;
-
 module.exports = {
   context: helpers.resolveFromRootPath("src"),
   resolve: {
