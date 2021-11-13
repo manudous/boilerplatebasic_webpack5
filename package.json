@@ -7,6 +7,7 @@
     "start": "run-p -l type-check:watch start:dev",
     "start:dev": "webpack serve --config ./config/webpack/dev.js",
     "build": "run-p -l type-check build:prod",
+    "build:dev": "npm run clean && webpack --config ./config/webpack/dev.js",
     "build:prod": "npm run clean && webpack --config ./config/webpack/prod.js",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
